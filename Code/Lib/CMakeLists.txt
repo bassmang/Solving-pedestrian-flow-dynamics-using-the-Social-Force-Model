@@ -18,6 +18,7 @@ set(PHAS0100ASSIGNMENT2_LIBRARY_SRCS
   sfmBasicTypes.cpp
   sfmMyFunctions.cpp
   sfmException.cpp
+  sfmPedestrian.cpp
 )
 
 if (VTK_FOUND)
@@ -26,6 +27,7 @@ endif ()
 
 set(PHAS0100ASSIGNMENT2_LIBRARY_HDRS
   sfmExceptionMacro.h
+  sfmPedestrian.h
 )
 
 add_library(${PHAS0100ASSIGNMENT2_LIBRARY_NAME} ${PHAS0100ASSIGNMENT2_LIBRARY_HDRS} ${PHAS0100ASSIGNMENT2_LIBRARY_SRCS})
