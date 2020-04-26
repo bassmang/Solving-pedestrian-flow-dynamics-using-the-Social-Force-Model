@@ -14,7 +14,7 @@
 
 #include "catch.hpp"
 #include "sfmCatchMain.h"
-#include "sfmPedestrian.h"
+#include "sfmTargetedPedestrian.h"
 #include "sfmForces.h"
 #include <iostream>
 #include <vector>
@@ -32,7 +32,7 @@ TEST_CASE( "Basic Pedestrian instantiation" ) {
   pos2d pos = pos2d(1,1);
   float v_des = 1.1;
   float t_relax = 4.4;
-  Pedestrian p(orig, dest, v, pos, v_des, t_relax);
+  TargetedPedestrian p(orig, dest, v, pos, v_des, t_relax);
   REQUIRE(almost_eq(p.orig.x(), 1.1, epsilon));
   REQUIRE(almost_eq(p.orig.y(), 1.2, epsilon));
   REQUIRE(almost_eq(p.v.y(), 52.2, epsilon));
@@ -46,7 +46,7 @@ TEST_CASE( "Check boundary conditions work when instantiated outside" ) {
   pos2d pos = pos2d(1,1);
   float v_des = 1.1;
   float t_relax = 4.4;
-  Pedestrian p(orig, dest, v, pos, v_des, t_relax);
+  TargetedPedestrian p(orig, dest, v, pos, v_des, t_relax);
   REQUIRE(almost_eq(p.orig.x(), 1.1, epsilon));
 }
 
@@ -57,7 +57,7 @@ TEST_CASE( "Check boundary conditions work when moving outside" ) {
   pos2d pos = pos2d(45,45);
   float v_des = 1.1;
   float t_relax = 4.4;
-  Pedestrian p(orig, dest, v, pos, v_des, t_relax);
+  TargetedPedestrian p(orig, dest, v, pos, v_des, t_relax);
   REQUIRE(almost_eq(p.pos.x(), 45, epsilon));
   p.pos = p.pos + p.v;
   REQUIRE(almost_eq(p.pos.x(), 5, epsilon));
@@ -82,8 +82,8 @@ TEST_CASE( "Toy example to test all functionality of Force class" ) {
   pos2d pos1 = pos2d(0,0);
   float v_des1 = 2;
   float t_relax1 = 1.0;
-  Pedestrian p1(orig1, dest1, v1, pos1, v_des1, t_relax1);
-  shared_ptr<Pedestrian> p1s = make_shared<Pedestrian>(p1);
+  TargetedPedestrian p1(orig1, dest1, v1, pos1, v_des1, t_relax1);
+  shared_ptr<Pedestrian> p1s = make_shared<TargetedPedestrian>(p1);
 
   // Set up second pedestrian
   pos2d orig2 = pos2d(3,4);
@@ -92,8 +92,8 @@ TEST_CASE( "Toy example to test all functionality of Force class" ) {
   pos2d pos2 = pos2d(0,1);
   float v_des2 = 3;
   float t_relax2 = 2.0;
-  Pedestrian p2(orig2, dest2, v2, pos2, v_des2, t_relax2);
-  shared_ptr<Pedestrian> p2s = make_shared<Pedestrian>(p2);
+  TargetedPedestrian p2(orig2, dest2, v2, pos2, v_des2, t_relax2);
+  shared_ptr<Pedestrian> p2s = make_shared<TargetedPedestrian>(p2);
 
   // Set up third pedestrian
   pos2d orig3 = pos2d(5,6);
@@ -102,8 +102,8 @@ TEST_CASE( "Toy example to test all functionality of Force class" ) {
   pos2d pos3 = pos2d(5,8);
   float v_des3 = 4;
   float t_relax3 = 3.0;
-  Pedestrian p3(orig3, dest3, v3, pos3, v_des3, t_relax3);
-  shared_ptr<Pedestrian> p3s = make_shared<Pedestrian>(p3);
+  TargetedPedestrian p3(orig3, dest3, v3, pos3, v_des3, t_relax3);
+  shared_ptr<Pedestrian> p3s = make_shared<TargetedPedestrian>(p3);
 
   // Test unit_direction function
   REQUIRE(almost_eq(Force::unit_direction(p1s).x(), .6, epsilon));

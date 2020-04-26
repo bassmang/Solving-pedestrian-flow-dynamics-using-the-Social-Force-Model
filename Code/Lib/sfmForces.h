@@ -1,7 +1,8 @@
 #ifndef sfmForces_h
 #define sfmForces_h
 
-#include "sfmPedestrian.h"
+//#include "sfmPedestrian.h"
+#include "sfmPedestrianI.h"
 #include <vector>
 #include <math.h>
 #include <memory>

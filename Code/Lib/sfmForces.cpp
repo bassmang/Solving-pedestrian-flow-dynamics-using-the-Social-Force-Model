@@ -5,7 +5,7 @@ namespace sfm {
 
 // Helper function to get unit direction of a pedestrian to destination
 dir2d Force::unit_direction(const shared_ptr<Pedestrian> &p) {
-	dir2d direction = p -> pos.direction(p -> dest);
+	dir2d direction = p -> pos.direction(p -> GetTarget());
 	return direction * (1.0 / direction.length());
 }
 

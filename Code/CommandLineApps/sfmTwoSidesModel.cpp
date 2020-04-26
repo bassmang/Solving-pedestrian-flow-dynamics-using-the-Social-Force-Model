@@ -40,32 +40,32 @@ int main() {
   // Set up 5 pedestrians on left side
   dir2d lv = dir2d(1,0);
   vector<int> l_ys = {1,3,5,7,9};
-  Pedestrian p0(pos2d(0,l_ys[0]), pos2d(r_start,l_ys[0]), lv, pos2d(0,l_ys[0]), v_des, t_relax);
-  Pedestrian p1(pos2d(0,l_ys[1]), pos2d(r_start,l_ys[1]), lv, pos2d(0,l_ys[1]), v_des, t_relax);
-  Pedestrian p2(pos2d(0,l_ys[2]), pos2d(r_start,l_ys[2]), lv, pos2d(0,l_ys[2]), v_des, t_relax);
-  Pedestrian p3(pos2d(0,l_ys[3]), pos2d(r_start,l_ys[3]), lv, pos2d(0,l_ys[3]), v_des, t_relax);
-  Pedestrian p4(pos2d(0,l_ys[4]), pos2d(r_start,l_ys[4]), lv, pos2d(0,l_ys[4]), v_des, t_relax);
+  TargetedPedestrian p0(pos2d(0,l_ys[0]), pos2d(r_start,l_ys[0]), lv, pos2d(0,l_ys[0]), v_des, t_relax);
+  TargetedPedestrian p1(pos2d(0,l_ys[1]), pos2d(r_start,l_ys[1]), lv, pos2d(0,l_ys[1]), v_des, t_relax);
+  TargetedPedestrian p2(pos2d(0,l_ys[2]), pos2d(r_start,l_ys[2]), lv, pos2d(0,l_ys[2]), v_des, t_relax);
+  TargetedPedestrian p3(pos2d(0,l_ys[3]), pos2d(r_start,l_ys[3]), lv, pos2d(0,l_ys[3]), v_des, t_relax);
+  TargetedPedestrian p4(pos2d(0,l_ys[4]), pos2d(r_start,l_ys[4]), lv, pos2d(0,l_ys[4]), v_des, t_relax);
 
   // Set up 5 pedestrians on right side
   dir2d rv = dir2d(-1,0);
   vector<int> r_ys = {1,3,5,7,9};
-  Pedestrian p5(pos2d(r_start,r_ys[0]), pos2d(0,r_ys[0]), rv, pos2d(r_start,r_ys[0]), v_des, t_relax);
-  Pedestrian p6(pos2d(r_start,r_ys[1]), pos2d(0,r_ys[1]), rv, pos2d(r_start,r_ys[1]), v_des, t_relax);
-  Pedestrian p7(pos2d(r_start,r_ys[2]), pos2d(0,r_ys[2]), rv, pos2d(r_start,r_ys[2]), v_des, t_relax);
-  Pedestrian p8(pos2d(r_start,r_ys[3]), pos2d(0,r_ys[3]), rv, pos2d(r_start,r_ys[3]), v_des, t_relax);
-  Pedestrian p9(pos2d(r_start,r_ys[4]), pos2d(0,r_ys[4]), rv, pos2d(r_start,r_ys[4]), v_des, t_relax);
+  TargetedPedestrian p5(pos2d(r_start,r_ys[0]), pos2d(0,r_ys[0]), rv, pos2d(r_start,r_ys[0]), v_des, t_relax);
+  TargetedPedestrian p6(pos2d(r_start,r_ys[1]), pos2d(0,r_ys[1]), rv, pos2d(r_start,r_ys[1]), v_des, t_relax);
+  TargetedPedestrian p7(pos2d(r_start,r_ys[2]), pos2d(0,r_ys[2]), rv, pos2d(r_start,r_ys[2]), v_des, t_relax);
+  TargetedPedestrian p8(pos2d(r_start,r_ys[3]), pos2d(0,r_ys[3]), rv, pos2d(r_start,r_ys[3]), v_des, t_relax);
+  TargetedPedestrian p9(pos2d(r_start,r_ys[4]), pos2d(0,r_ys[4]), rv, pos2d(r_start,r_ys[4]), v_des, t_relax);
 
   // Make shared pointers for each pedestrian
-  shared_ptr<Pedestrian> p0s = make_shared<Pedestrian>(p0);
-  shared_ptr<Pedestrian> p1s = make_shared<Pedestrian>(p1);
-  shared_ptr<Pedestrian> p2s = make_shared<Pedestrian>(p2);
-  shared_ptr<Pedestrian> p3s = make_shared<Pedestrian>(p3);
-  shared_ptr<Pedestrian> p4s = make_shared<Pedestrian>(p4);
-  shared_ptr<Pedestrian> p5s = make_shared<Pedestrian>(p5);
-  shared_ptr<Pedestrian> p6s = make_shared<Pedestrian>(p6);
-  shared_ptr<Pedestrian> p7s = make_shared<Pedestrian>(p7);
-  shared_ptr<Pedestrian> p8s = make_shared<Pedestrian>(p8);
-  shared_ptr<Pedestrian> p9s = make_shared<Pedestrian>(p9);
+  shared_ptr<Pedestrian> p0s = make_shared<TargetedPedestrian>(p0);
+  shared_ptr<Pedestrian> p1s = make_shared<TargetedPedestrian>(p1);
+  shared_ptr<Pedestrian> p2s = make_shared<TargetedPedestrian>(p2);
+  shared_ptr<Pedestrian> p3s = make_shared<TargetedPedestrian>(p3);
+  shared_ptr<Pedestrian> p4s = make_shared<TargetedPedestrian>(p4);
+  shared_ptr<Pedestrian> p5s = make_shared<TargetedPedestrian>(p5);
+  shared_ptr<Pedestrian> p6s = make_shared<TargetedPedestrian>(p6);
+  shared_ptr<Pedestrian> p7s = make_shared<TargetedPedestrian>(p7);
+  shared_ptr<Pedestrian> p8s = make_shared<TargetedPedestrian>(p8);
+  shared_ptr<Pedestrian> p9s = make_shared<TargetedPedestrian>(p9);
 
   // Make vector for all Pedestrians and push each
   vector<shared_ptr<Pedestrian>> peds;
