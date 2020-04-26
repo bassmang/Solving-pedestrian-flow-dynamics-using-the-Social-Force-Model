@@ -9,7 +9,6 @@ class Pedestrian {
 public:
   virtual pos2d GetTarget() = 0;
   pos2d orig;
-  pos2d dest;
   dir2d v;
   pos2d pos;
   float v_des;

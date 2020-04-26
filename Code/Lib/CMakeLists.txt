@@ -19,6 +19,7 @@ set(PHAS0100ASSIGNMENT2_LIBRARY_SRCS
   sfmMyFunctions.cpp
   sfmException.cpp
   sfmTargetedPedestrian.cpp
+  sfmDirectionalPedestrian.cpp
   sfmForces.cpp
 )
 
@@ -30,6 +31,7 @@ set(PHAS0100ASSIGNMENT2_LIBRARY_HDRS
   sfmExceptionMacro.h
   sfmPedestrianI.h
   sfmTargetedPedestrian.h
+  sfmDirectionalPedestrian.h
   sfmForces.h
 )
 
