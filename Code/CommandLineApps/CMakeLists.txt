@@ -16,6 +16,7 @@ set(_command_line_apps
   sfmPedestrianFlowModel
   sfmTwoSidesModel
   sfmBoxToTargetModel
+  sfmBoxToTargetWithDirectionalModel
 )
 
 if (VTK_FOUND)

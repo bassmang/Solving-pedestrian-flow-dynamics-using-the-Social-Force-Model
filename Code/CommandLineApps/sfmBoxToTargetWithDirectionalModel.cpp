@@ -33,15 +33,30 @@ int main() {
   phi /= pi;
 
   // Set destination in bottom left corner
-  pos2d dest(.01,.01);
+  pos2d dest(.01, .01);
 
-  // Set box to bottom left corner
+  // Set first box to top right corner
   pos2d box_min(46,6);
   pos2d box_max(48,8);
 
-  // Use factory method to generate Pedestrians
+  // Use factory method to generate Targeted Pedestrians
   vector<shared_ptr<Pedestrian>> peds = PedestrianSpawner::createDistributed(
-    n_pedestrians, Targeted, dest, box_min, box_max);
+    n_pedestrians / 2, Targeted, dest, box_min, box_max);
+
+
+  // Set second box to left side
+  pos2d box_min_dir(2,3);
+  pos2d box_max_dir(2.5,7);
+
+  // Use factory method to generate Directional Pedestrians
+  pos2d direc_dest(1,0); // Set direction of Pedestrians to be (1,0)
+  vector<shared_ptr<Pedestrian>> peds_dir = PedestrianSpawner::createDistributed(
+    n_pedestrians / 2, Directional, direc_dest, box_min_dir, box_max_dir);
+
+  // Add Directional Pedestrians to vector
+  for (shared_ptr<Pedestrian> p : peds_dir) {
+    peds.push_back(p);
+  }
 
   // Define time variables for outer loop
   float finish_time_s = 20.0;
