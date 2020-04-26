@@ -21,6 +21,7 @@ set(PHAS0100ASSIGNMENT2_LIBRARY_SRCS
   sfmTargetedPedestrian.cpp
   sfmDirectionalPedestrian.cpp
   sfmForces.cpp
+  sfmPedestrianSpawner.cpp
 )
 
 if (VTK_FOUND)
@@ -33,6 +34,7 @@ set(PHAS0100ASSIGNMENT2_LIBRARY_HDRS
   sfmTargetedPedestrian.h
   sfmDirectionalPedestrian.h
   sfmForces.h
+  sfmPedestrianSpawner.h
 )
 
 add_library(${PHAS0100ASSIGNMENT2_LIBRARY_NAME} ${PHAS0100ASSIGNMENT2_LIBRARY_HDRS} ${PHAS0100ASSIGNMENT2_LIBRARY_SRCS})

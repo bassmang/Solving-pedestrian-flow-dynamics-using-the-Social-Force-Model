@@ -73,7 +73,7 @@ int main(int argc, char** argv){
     viewer.UpdateScene();
 
     // Sleep for a bit so can see visualiser updating 
-    std::this_thread::sleep_for (std::chrono::milliseconds(200));
+    std::this_thread::sleep_for (std::chrono::milliseconds(20));
 
   } 
 
