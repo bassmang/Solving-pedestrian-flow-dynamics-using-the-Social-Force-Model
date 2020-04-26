@@ -16,7 +16,7 @@ int main() {
   //  Variables to define viewer world
   double world_width_x = POS2D_XWRAP;
   double world_width_y = POS2D_YWRAP;
-  const unsigned int n_pedestrians = 20;
+  const unsigned int n_pedestrians = 10;
 
   // Create viewer and initialise with required number of pedestrians
   sfm::Visualiser viewer(n_pedestrians, world_width_x, world_width_y);
