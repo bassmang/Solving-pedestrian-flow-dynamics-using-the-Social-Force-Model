@@ -169,14 +169,3 @@ TEST_CASE( "Toy example to test all functionality of Force class" ) {
   REQUIRE(almost_eq(Force::F_all(p1s, betas, delta_t, V_0, sigma, phi, c, U_0, R).x(), .2, epsilon));
   REQUIRE(almost_eq(Force::F_all(p1s, betas, delta_t, V_0, sigma, phi, c, U_0, R).y(), 50.541, epsilon));
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -14,6 +14,7 @@
 
 set(_command_line_apps
   sfmMyFirstApp
+  sfmPedestrianFlowModel
 )
 
 if (VTK_FOUND)
