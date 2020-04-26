@@ -13,8 +13,8 @@
 #============================================================================*/
 
 set(_command_line_apps
-  sfmMyFirstApp
   sfmPedestrianFlowModel
+  sfmTwoSidesModel
 )
 
 if (VTK_FOUND)

@@ -14,9 +14,9 @@ using namespace std;
 int main() {
 
   //  Variables to define viewer world
-  double world_width_x = 50.0;
-  double world_width_y = 10.0;
-  const unsigned int n_pedestrians = 3;
+  double world_width_x = POS2D_XWRAP;
+  double world_width_y = POS2D_YWRAP;
+  const unsigned int n_pedestrians = 20;
 
   // Create viewer and initialise with required number of pedestrians
   sfm::Visualiser viewer(n_pedestrians, world_width_x, world_width_y);
@@ -31,42 +31,54 @@ int main() {
   float phi = 100;
   float pi = 3.1415926535897;
   phi /= pi;
-  
-  // Set up first pedestrian
-  pos2d orig1 = pos2d(1,2);
-  pos2d dest1 = pos2d(3,4);
-  dir2d v1 = dir2d(1,1);
-  pos2d pos1 = pos2d(0,0);
-  float v_des1 = 2;
-  float t_relax1 = 1.0;
-  Pedestrian p1(orig1, dest1, v1, pos1, v_des1, t_relax1);
+
+  // Set uniform variables for all 10 pedestrians
+  float v_des = 1.3;
+  float t_relax = 0.5;
+  float r_start = POS2D_XWRAP - .01;
+
+  // Set up 5 pedestrians on left side
+  dir2d lv = dir2d(1,0);
+  vector<int> l_ys = {1,3,5,7,9};
+  Pedestrian p0(pos2d(0,l_ys[0]), pos2d(r_start,l_ys[0]), lv, pos2d(0,l_ys[0]), v_des, t_relax);
+  Pedestrian p1(pos2d(0,l_ys[1]), pos2d(r_start,l_ys[1]), lv, pos2d(0,l_ys[1]), v_des, t_relax);
+  Pedestrian p2(pos2d(0,l_ys[2]), pos2d(r_start,l_ys[2]), lv, pos2d(0,l_ys[2]), v_des, t_relax);
+  Pedestrian p3(pos2d(0,l_ys[3]), pos2d(r_start,l_ys[3]), lv, pos2d(0,l_ys[3]), v_des, t_relax);
+  Pedestrian p4(pos2d(0,l_ys[4]), pos2d(r_start,l_ys[4]), lv, pos2d(0,l_ys[4]), v_des, t_relax);
+
+  // Set up 5 pedestrians on right side
+  dir2d rv = dir2d(-1,0);
+  vector<int> r_ys = {1,3,5,7,9};
+  Pedestrian p5(pos2d(r_start,r_ys[0]), pos2d(0,r_ys[0]), rv, pos2d(r_start,r_ys[0]), v_des, t_relax);
+  Pedestrian p6(pos2d(r_start,r_ys[1]), pos2d(0,r_ys[1]), rv, pos2d(r_start,r_ys[1]), v_des, t_relax);
+  Pedestrian p7(pos2d(r_start,r_ys[2]), pos2d(0,r_ys[2]), rv, pos2d(r_start,r_ys[2]), v_des, t_relax);
+  Pedestrian p8(pos2d(r_start,r_ys[3]), pos2d(0,r_ys[3]), rv, pos2d(r_start,r_ys[3]), v_des, t_relax);
+  Pedestrian p9(pos2d(r_start,r_ys[4]), pos2d(0,r_ys[4]), rv, pos2d(r_start,r_ys[4]), v_des, t_relax);
+
+  // Make shared pointers for each pedestrian
+  shared_ptr<Pedestrian> p0s = make_shared<Pedestrian>(p0);
   shared_ptr<Pedestrian> p1s = make_shared<Pedestrian>(p1);
-
-  // Set up second pedestrian
-  pos2d orig2 = pos2d(3,4);
-  pos2d dest2 = pos2d(3,6);
-  dir2d v2 = dir2d(6,8);
-  pos2d pos2 = pos2d(0,1);
-  float v_des2 = 3;
-  float t_relax2 = 2.0;
-  Pedestrian p2(orig2, dest2, v2, pos2, v_des2, t_relax2);
   shared_ptr<Pedestrian> p2s = make_shared<Pedestrian>(p2);
-
-  // Set up third pedestrian
-  pos2d orig3 = pos2d(5,6);
-  pos2d dest3 = pos2d(7,7);
-  dir2d v3 = dir2d(-1,-2);
-  pos2d pos3 = pos2d(5,8);
-  float v_des3 = 4;
-  float t_relax3 = 3.0;
-  Pedestrian p3(orig3, dest3, v3, pos3, v_des3, t_relax3);
   shared_ptr<Pedestrian> p3s = make_shared<Pedestrian>(p3);
+  shared_ptr<Pedestrian> p4s = make_shared<Pedestrian>(p4);
+  shared_ptr<Pedestrian> p5s = make_shared<Pedestrian>(p5);
+  shared_ptr<Pedestrian> p6s = make_shared<Pedestrian>(p6);
+  shared_ptr<Pedestrian> p7s = make_shared<Pedestrian>(p7);
+  shared_ptr<Pedestrian> p8s = make_shared<Pedestrian>(p8);
+  shared_ptr<Pedestrian> p9s = make_shared<Pedestrian>(p9);
 
-  // Push pedestrians onto vector
+  // Make vector for all Pedestrians and push each
   vector<shared_ptr<Pedestrian>> peds;
+  peds.push_back(p0s);
   peds.push_back(p1s);
   peds.push_back(p2s);
   peds.push_back(p3s);
+  peds.push_back(p4s);
+  peds.push_back(p5s);
+  peds.push_back(p6s);
+  peds.push_back(p7s);
+  peds.push_back(p8s);
+  peds.push_back(p9s);
 
   // Define time variables for outer loop
   float finish_time_s = 10.0;
