@@ -4,6 +4,7 @@
 #include "sfmPedestrian.h"
 #include <vector>
 #include <math.h>
+#include <memory>
 using namespace std;
 
 //! Single namespace for all code in this package
