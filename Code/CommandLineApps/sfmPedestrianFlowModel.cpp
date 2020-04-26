@@ -14,12 +14,10 @@ using namespace std;
 int main() {
 
   //  Variables to define viewer world
-  double world_width_x = 50.0;
-  double world_width_y = 10.0;
   const unsigned int n_pedestrians = 3;
 
   // Create viewer and initialise with required number of pedestrians
-  sfm::Visualiser viewer(n_pedestrians, world_width_x, world_width_y);
+  sfm::Visualiser viewer(n_pedestrians, POS2D_XWRAP, POS2D_XWRAP);
 
   // Define necessary variables as provided in write-up
   float V_0 = 2.1;
