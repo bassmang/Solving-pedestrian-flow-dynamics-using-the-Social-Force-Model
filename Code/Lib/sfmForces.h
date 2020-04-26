@@ -3,6 +3,7 @@
 
 //#include "sfmPedestrian.h"
 #include "sfmPedestrianI.h"
+#include "sfmTargetedPedestrian.h"
 #include <vector>
 #include <math.h>
 #include <memory>
