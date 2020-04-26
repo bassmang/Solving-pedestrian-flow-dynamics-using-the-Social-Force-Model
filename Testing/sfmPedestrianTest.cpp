@@ -62,6 +62,18 @@ TEST_CASE( "Check boundary conditions work when moving outside" ) {
   REQUIRE(almost_eq(p.pos.x(), 5, epsilon));
 }
 
+TEST_CASE( "Check force to desination" ) {
+  pos2d orig = pos2d(0,0);
+  pos2d dest = pos2d(3,4);
+  dir2d v = dir2d(1,1);
+  pos2d pos = pos2d(0,0);
+  float v_des = 2;
+  float t_relax = 2.0;
+  Pedestrian p(orig, dest, v, pos, v_des, t_relax);
+  REQUIRE(almost_eq(p.F_dest().x(), .1, epsilon));
+  REQUIRE(almost_eq(p.F_dest().y(), .3, epsilon));
+}
+
 
 
 
