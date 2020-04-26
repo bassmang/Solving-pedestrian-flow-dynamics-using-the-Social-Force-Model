@@ -1,10 +1,25 @@
-// Your First C++ Program
 
-#include <iostream>
 #include "sfmForces.h"
+#include "sfmVisualiser.h"
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <memory>
+#include <array>
+#include <vector>
+#include <random>
+
 using namespace std;
 
 int main() {
+
+  //  Variables to define viewer world
+  double world_width_x = 50.0;
+  double world_width_y = 10.0;
+  const unsigned int n_pedestrians = 3;
+
+  // Create viewer and initialise with required number of pedestrians
+  sfm::Visualiser viewer(n_pedestrians, world_width_x, world_width_y);
 
   // Define necessary variables as provided in write-up
   float V_0 = 2.1;
@@ -80,6 +95,13 @@ int main() {
       (peds[i] -> v) = v_new;
       // Update position
       (peds[i] -> pos) = (peds[i] -> pos) + v_new*delta_t;
+      // Send updated pedestrian positions to viewer 
+      viewer.SetPedestrian(i, (peds[i] -> pos).x(), (peds[i] -> pos).y(), 
+		              (peds[i] -> v).x(), (peds[i] -> v).y());
+      // Tell viewer to redraw scene
+      viewer.UpdateScene();
+      // Sleep for a bit so can see visualiser updating 
+      std::this_thread::sleep_for (std::chrono::milliseconds(200));
 
     }
     curr_time += delta_t; // Increment timestep
