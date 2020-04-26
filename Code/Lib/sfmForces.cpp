@@ -39,8 +39,8 @@ dir2d Force::direction_ab(const shared_ptr<Pedestrian> &alpha, const shared_ptr<
 }
 
 // Helper function for field of vision. ** Make sure to put in negative repulsion force
-float Force::field_of_vision_fac(const dir2d &movement, const dir2d &repulsion, float c) {
-	if (movement * repulsion >= repulsion.length()*movement.cos_angle(repulsion)) {
+float Force::field_of_vision_fac(const dir2d &movement, const dir2d &repulsion, float phi, float c) {
+	if (movement * repulsion >= repulsion.length()*cos(phi)) {
 		return 1;
 	} else {
 		return c;
@@ -48,14 +48,14 @@ float Force::field_of_vision_fac(const dir2d &movement, const dir2d &repulsion, 
 }
 
 dir2d Force::F_pedestrians(const shared_ptr<Pedestrian> &alpha, const vector<shared_ptr<Pedestrian>> &betas,
-	                  float delta_t, float V_0, float sigma, float c) {
+	                  float delta_t, float V_0, float sigma, float phi, float c) {
 	dir2d sum_forces(0,0);
 	for (shared_ptr<Pedestrian> beta : betas) {
 		float b_val = b(alpha, beta, delta_t);
 		float f_ab_val = f_ab(b_val, V_0, sigma);
 		dir2d repulsion = f_ab_val * direction_ab(alpha, beta);
 		dir2d movement = unit_direction(alpha);
-		float w = field_of_vision_fac(movement, -1 * repulsion, c);
+		float w = field_of_vision_fac(movement, -1 * repulsion, phi, c);
 		sum_forces = sum_forces + (w * repulsion);
 	}
 	return sum_forces;
@@ -80,9 +80,9 @@ dir2d Force::F_border(const shared_ptr<Pedestrian> &alpha, float delta_t, float 
 }
 
 dir2d Force::F_all(const shared_ptr<Pedestrian> &alpha, const vector<shared_ptr<Pedestrian>> &betas,
-            float delta_t, float V_0, float sigma, float c, float U_0, float R) {
+            float delta_t, float V_0, float sigma, float phi, float c, float U_0, float R) {
 	dir2d F_destination = F_dest(alpha);
-	dir2d F_peds = F_pedestrians(alpha, betas, delta_t, V_0, sigma, c);
+	dir2d F_peds = F_pedestrians(alpha, betas, delta_t, V_0, sigma, phi, c);
 	dir2d F_bord = F_border(alpha, delta_t, U_0, R);
 	return F_destination + F_peds + F_bord;
 }
