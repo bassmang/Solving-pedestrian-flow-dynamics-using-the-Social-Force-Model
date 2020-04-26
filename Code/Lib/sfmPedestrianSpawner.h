@@ -4,6 +4,7 @@
 #include "sfmTargetedPedestrian.h"
 #include "sfmDirectionalPedestrian.h"
 #include <vector>
+#include <memory>
 using namespace std;
 
 enum PedestrianType { Targeted, Directional };

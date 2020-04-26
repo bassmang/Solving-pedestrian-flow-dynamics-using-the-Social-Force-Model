@@ -1,4 +1,3 @@
-
 #include "sfmTargetedPedestrian.h"
 #include "sfmDirectionalPedestrian.h"
 #include "sfmForces.h"
@@ -34,18 +33,18 @@ int main() {
   phi /= pi;
 
   // Set destination in top right corner
-  pos2d dest(POS2D_XWRAP - .01, POS2D_YWRAP - .01)
+  pos2d dest(POS2D_XWRAP - .01, POS2D_YWRAP - .01);
 
   // Set box to bottom left corner
-  pos2d box_min(.1,.1);
-  pos2d box_max(2,2);
+  pos2d box_min(2,2);
+  pos2d box_max(4,4);
 
   // Use factory method to generate Pedestrians
   vector<shared_ptr<Pedestrian>> peds = PedestrianSpawner::createDistributed(
     n_pedestrians, Targeted, dest, box_min, box_max);
 
   // Define time variables for outer loop
-  float finish_time_s = 10.0;
+  float finish_time_s = 20.0;
   float curr_time = 0.0;
   // Loop over time period
   while (curr_time < finish_time_s) {
@@ -77,7 +76,7 @@ int main() {
       // Tell viewer to redraw scene
       viewer.UpdateScene();
       // Sleep for a bit so can see visualiser updating 
-      std::this_thread::sleep_for (std::chrono::milliseconds(200));
+      std::this_thread::sleep_for (std::chrono::milliseconds(20));
 
     }
     curr_time += delta_t; // Increment timestep
