@@ -16,7 +16,6 @@ set(PHAS0100ASSIGNMENT2_LIBRARY_NAME phas0100assignment2)
 
 set(PHAS0100ASSIGNMENT2_LIBRARY_SRCS
   sfmBasicTypes.cpp
-  sfmMyFunctions.cpp
   sfmException.cpp
   sfmTargetedPedestrian.cpp
   sfmDirectionalPedestrian.cpp
