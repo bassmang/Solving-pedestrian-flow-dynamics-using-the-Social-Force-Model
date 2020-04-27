@@ -39,7 +39,7 @@ In order to get in the same directory as the app. In this directory there are a 
 ```
 ./sfmPedestrianTest
 ```
-This will run a suite of unit tests to ensure the inner functionality of my program is working correctly. All 39 assertions should pass
+This will run a suite of unit tests to ensure the inner functionality of my program is working correctly. All 39 assertions should pass.
 ```
 ./sfmPedestrianFlowModel
 ```
