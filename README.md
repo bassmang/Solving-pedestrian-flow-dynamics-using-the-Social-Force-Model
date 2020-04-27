@@ -74,5 +74,5 @@ This runs a similar program as above, but uses parallelisation. This program use
 Benchmarking
 ------------------
 
-Using the two programs above, I was able to benchmark the performance of my program based on whether parallelisation was used, and if so how many threads were used. I have included a graphic showing how the number of threads affected runtime named:
-""
+Using the two programs above, I was able to benchmark the performance of my program based on whether parallelisation was used, and if so how many threads were used. I have included a graphic showing how the number of threads affected runtime named:\n
+"BenchmarkPerformance.png"
