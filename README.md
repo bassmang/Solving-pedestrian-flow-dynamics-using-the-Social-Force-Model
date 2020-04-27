@@ -48,19 +48,22 @@ This is a simple model with 3 pedestrians that tests the funcionality of Part 4.
 ./sfmTwoSidesModel
 ```
 This is the model described in Part 5. Here I initialized 5 pedestrians on left side, and 5 on the right, each with their destination on the other side. I have included screenshots from this program at t=0 and t=10 named as follows:
-"TowSided Model, t=0.png"
+<br />
+"TowSided Model, t=0.png" <br />
 "TowSided Model, t=10.png
 ```
 ./sfmBoxToTargetModel
 ```
 This is the model described in Part 6(c). I initialised 20 targeted pedestrians in the top right corner with all of their destinations in the bottom left corner. I have included screenshots from this program at t=0 and t=10 named as follows:
-"BoxToTargetModel, t=0.png"
+<br />
+"BoxToTargetModel, t=0.png" <br />
 "BoxToTargetModel, t=10.png"
 ```
 ./sfmBoxToTargetWithDirectionalModel
 ```
 This is the model described in Part 6(d). I initialised 10 targeted pedestrians in the top right corner with all of their destinations in the bottom left corner. I also initialised 10 directed pedestrians on the left side, all with a direction to move to the right. I have included screenshots from this program at t=0 and t=10 named as follows:
-"BoxToTargetWithDirectionalModel, t=0.png"
+<br />
+"BoxToTargetWithDirectionalModel, t=0.png" <br />
 "BoxToTargetWithDirectionalModel, t=0.png"
 ```
 ./sfmBenchmarkStandard
@@ -74,5 +77,6 @@ This runs a similar program as above, but uses parallelisation. This program use
 Benchmarking
 ------------------
 
-Using the two programs above, I was able to benchmark the performance of my program based on whether parallelisation was used, and if so how many threads were used. I have included a graphic showing how the number of threads affected runtime named:\n
-"BenchmarkPerformance.png"
+Using the two programs above, I was able to benchmark the performance of my program based on whether parallelisation was used, and if so how many threads were used. I have included a graphic showing how the number of threads affected runtime named:
+<br />
+"BenchmarkPerformance.png" <br />
