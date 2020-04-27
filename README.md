@@ -80,3 +80,4 @@ Benchmarking
 Using the two programs above, I was able to benchmark the performance of my program based on whether parallelisation was used, and if so how many threads were used. I have included a graphic showing how the number of threads affected runtime named:
 <br />
 "BenchmarkPerformance.png" <br />
+Based on my experimentation, parallelisation did not seem to have a large effect on the runtime. When running the standard model, I got a CPU time of 282ms and a Wall time of 299ms. This performance was slightly better than those with parallelisation. I did notice that the runtime began to decreases drastically when too many threads were used. For instance, using 1000 threads had a CPU time of 1533ms and a Wall time of 1658ms. This is because using more threads increases the overhead, which can slow down runtim if used in excess.
